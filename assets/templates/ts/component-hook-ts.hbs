@@ -1,0 +1,12 @@
+import { UseDataProps } from {{quotes}}./types{{quotes}};
+import { useTranslation } from {{quotes}}react-i18next{{quotes}};
+
+const useData = (): UseDataProps => {
+	const { t } = useTranslation();
+
+	return {
+		t,
+	};
+};
+
+export default useData;

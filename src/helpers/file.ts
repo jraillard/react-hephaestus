@@ -1,13 +1,22 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { workspace } from 'vscode';
+import { config } from './configuration';
 
+/**
+ * Helper for file management
+ */
 export class FileHelper {
 	public static projectRoot = workspace.workspaceFolders
 		? workspace.workspaceFolders[0].uri.fsPath
 		: '/';
 
-	public static findDir(filePath: string) {
+	/**
+	 * Find directory from file path
+	 * @param filePath : File path
+	 * @returns
+	 */
+	public static findDir(filePath: string): string | null {
 		if (!filePath) {
 			return null;
 		}
@@ -18,18 +27,23 @@ export class FileHelper {
 		return filePath;
 	}
 
-	public static findRelativePath(relativePath: string): string {
-		relativePath = relativePath || '/';
-		if (path.resolve(relativePath) === relativePath) {
-			relativePath = relativePath
+	/**
+	 * Allow to find relative path to the project root
+	 * @param inputPath : Path to convert
+	 * @returns Relative Path
+	 */
+	public static findRelativePath(inputPath: string): string {
+		inputPath = inputPath || '/';
+		if (path.resolve(inputPath) === inputPath) {
+			inputPath = inputPath
 				.substring(this.projectRoot.length)
 				.replace(/\\/g, '/');
 		}
-		if (!relativePath.endsWith('/')) {
-			relativePath += '/';
+		if (!inputPath.endsWith('/')) {
+			inputPath += '/';
 		}
 
-		return relativePath;
+		return inputPath;
 	}
 
 	/**
@@ -38,10 +52,21 @@ export class FileHelper {
 	 * @returns : Directory created full path
 	 */
 	public static makeDirSync(dir: string): string {
-		if (fs.existsSync(dir)) return '';
+		if (fs.existsSync(dir)) {
+			const {
+				files: { rewrite: rewriteValue },
+			} = config();
+
+			if (!rewriteValue) throw new Error('You disabled file rewrite option.');
+
+			// Delete and recreate in order to rewrite files even if they already have been created
+			fs.rmSync(dir, { recursive: true, force: true });
+		}
+
 		if (!fs.existsSync(path.dirname(dir))) {
 			this.makeDirSync(path.dirname(dir));
 		}
+
 		fs.mkdirSync(dir);
 		return dir;
 	}

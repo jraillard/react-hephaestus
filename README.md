@@ -1,71 +1,56 @@
-# react-hephaestus README
+# VSCode React Hephaestus
 
-This is the README for your extension "react-hephaestus". After writing up a brief description, we recommend including the following sections.
+Introducing ReactHephaestus, the ultimate tool for building React components in seconds! :hammer:
 
-## Features
+Say goodbye to manual labor and hello to efficiency with our extension that automates the generation of React components in the perfect structure. :muscle:
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+With ReactHephaestus, simply enter the desired folder name and watch as our generator clean and ready-to-use react components. :ok_hand:
 
-For example if there is an image subfolder under your extension project workspace:
+Streamline your workflow and focus on your creativity with ReactHephaestus – the perfect addition to your development toolkit ! :star2:
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+## Hilights
+- Allow to create react component in an opinionated way
+  - Hooks
+  - Translation with [react-i18next](https://react.i18next.com/)
+- Typescript support
+- Javascript support
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+- `reactHephaestus.global.quotes` (Default : 'single')
 
-For example:
+Define whether to use single or double quote for imports".
+        
+- `reactHephaestus.files.rewrite` (Default: true)
 
-This extension contributes the following settings:
+Allow to rewrite a component folder. Could be usefull if you're switching `reactHephaestus.components.useHooks` or `reactHephaestus.components.components regularly`.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+- `reactHephaestus.components.useHooks` (Default: true)
 
-## Known Issues
+Define to use hook file or not".
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- `reactHephaestus.components.extension` (Default: 'ts / tsx)
+
+The extension for component file.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+See [changelog](./CHANGELOG.md) file :grin:
 
-### 1.0.0
+### Contribute
+Feel free to open issues or PRs!
 
-Initial release of ...
+## Getting started
+In order to start working all you need to do is :
 
-### 1.0.1
+```sh
+$ git clone git@github.com:jraillard/react-hephaestus.git
+$ cd react-hephaestus
+$ npm install
+$ code .
+```
 
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+## Running Extension
+Go to VSCode debug sidebar
+Select Extension from the dropdown
+Hit F5

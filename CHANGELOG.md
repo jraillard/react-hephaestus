@@ -1,9 +1,6 @@
-# Change Log
+## [1.0.0](https://github.com/jraillard/react-hephaestus/releases/tag/react-hephaestus-1.0.0) (30-04-2023)
 
-All notable changes to the "react-hephaestus" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+### Features
+ Allow to create react component in an opinionated way
+  - Hooks
+  - Translation with [react-i18next](https://react.i18next.com/)

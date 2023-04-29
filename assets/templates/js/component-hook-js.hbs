@@ -1,0 +1,11 @@
+import { useTranslation } from {{quotes}}react-i18next{{quotes}};
+
+const useData = () => {
+	const { t } = useTranslation();
+
+	return {
+		t,
+	};
+};
+
+export default useData;
