@@ -12,6 +12,48 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "React Hephaestus",
+      "properties": {
+        "reactHephaestus.global.quotes": {
+          "type": "string",
+          "enum": [
+            "single",
+            "double"
+          ],
+          "enumDescriptions": [
+            "Single quote",
+            "Double quote"
+          ],
+          "default": "single",
+          "description": "Define whether to use single or double quote for imports"
+        },
+        "reactHephaestus.files.rewrite": {
+          "type": "boolean",
+          "default": true,
+          "description": "Allow to rewrite a component folder"
+        },
+        "reactHephaestus.components.useHooks": {
+          "type": "boolean",
+          "default": true,
+          "description": "Define to use hook file or not"
+        },
+        "reactHephaestus.components.extension": {
+          "type": "string",
+          "enum": [
+            "ts / tsx",
+            "js / jsx"
+          ],
+          "enumDescriptions": [
+            "Typescript way",
+            "Javascript way"
+          ],
+          "default": "ts / tsx",
+          "description": "The extension for component files"
+        }
+      }
+    },
     "commands": [
       {
         "command": "react-hephaestus.forgeReactComponent",
@@ -20,12 +62,6 @@
     ],
     "menus": {
       "explorer/context": [
-        {
-          "command": "react-hephaestus.forgeReactComponent",
-          "group": "navigation"
-        }
-      ],
-      "editor/context": [
         {
           "command": "react-hephaestus.forgeReactComponent",
           "group": "navigation"
@@ -55,8 +91,10 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
+    "@sinclair/typebox": "^0.28.8",
     "change-case": "^4.1.2",
     "fs": "^0.0.1-security",
+    "handlebars": "^4.7.7",
     "path": "^0.12.7",
     "rxjs": "^7.8.1"
   }

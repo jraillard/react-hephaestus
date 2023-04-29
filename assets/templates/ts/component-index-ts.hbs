@@ -1,0 +1,19 @@
+{{#if useHooks}}import useData from {{quotes}}./hook{{quotes}};{{/if}}
+{{#unless useHooks}}import { useTranslation } from {{quotes}}react-i18next{{quotes}};{{/unless}}
+import { {{componentName}}Props } from {{quotes}}./types{{quotes}};
+
+const {{componentName}} = ({ dataCy }: {{componentName}}Props) => {
+  {{#if useHooks}}const { t } = useData();{{/if}}
+  {{#unless useHooks}}const { t } = useTranslation();{{/unless}}
+
+  return (
+    <div className={`{{componentNameInParamCase}}-${dataCy}`}>
+        {t({{quotes}}hephaestus.workDone{{quotes}})}
+        <br/>
+        {{! Carefull : encompassing brackets should be spaced from the one from handlebar to avoid parse error }}
+        { {{quotes}}{{componentName}} has been forged 🔨{{quotes}} }
+    </div>
+  );
+}
+
+export default {{componentName}};
