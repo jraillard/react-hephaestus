@@ -1,0 +1,15 @@
+import { TFunction } from 'react-i18next';
+
+export type UseDataProps = {
+	/**
+	 * Translator
+	 */
+	t: TFunction;
+};
+
+export type {componentName}Props = {
+	/**
+	 * Cypress selector specifier from parent
+	 */
+	dataCy: string;
+};
